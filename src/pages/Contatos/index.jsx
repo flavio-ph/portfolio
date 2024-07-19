@@ -9,7 +9,8 @@ function Contatos() {
     return (
         <section className={styles.contatos}>
             <h2>Contatos</h2>
-            <h3>Entre em contato comigo para mais informações</h3>
+            <h3>Entre em contato comigo</h3>
+            <h3>para mais informações</h3>
             <p>Para que posssamos conversar mais sobre.</p>
 
             <div className={styles.icones}>
