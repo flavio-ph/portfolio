@@ -11,7 +11,7 @@ function Contatos() {
             <h2>Contatos</h2>
             <h3>Entre em contato comigo</h3>
             <h3>para mais informações</h3>
-            <p>Para que posssamos conversar mais sobre.</p>
+            <p>E para que posssamos conversar mais sobre.</p>
 
             <div className={styles.icones}>
 
