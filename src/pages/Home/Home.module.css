@@ -45,7 +45,7 @@
     opacity: 1;
     animation: cursor .8s infinite, digita 20s steps(15) infinite;
     width: calc(100% + 8px);
-    background-color: whitesmoke;
+    background-color: #fff;
 }
 
 
