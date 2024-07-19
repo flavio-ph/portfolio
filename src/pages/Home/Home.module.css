@@ -1,0 +1,188 @@
+
+
+.home {
+    width: 100%;
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+}
+
+.home img {
+    height: 500px;
+    position: relative;
+
+}
+
+.home p {
+    font-size: 3rem; /* 48px */
+    font-weight: bold;
+}
+.texto {
+    font-size: 45px;
+    font-weight: 300;
+
+}
+
+.texto span {
+    position: relative;
+}
+
+.texto span::before {
+    content: "";
+    color: var(--red);
+    animation: palavras 20s infinite;
+}
+
+.texto span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid var(--red);
+    right: -10px;
+    opacity: 1;
+    animation: cursor .8s infinite, digita 20s steps(15) infinite;
+    width: calc(100% + 8px);
+    background-color: whitesmoke;
+}
+
+
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 18px); 
+    }
+}
+
+@keyframes cursor {
+    0% {
+        border-left: 2px solid #fff;
+        
+    }
+}
+
+@keyframes palavras {
+    0%, 20% {
+        content: "Flávio Almeida";
+        font-weight: bold;
+    }
+    21%, 40% {
+        content: "Desenvolvedor";
+        font-weight: bold;
+    }
+
+    41%, 60% {
+        content: "Programador";
+        font-weight: bold;
+    }
+    61%, 80% {
+        content: "Dev";
+        font-weight: bold;
+    }
+    81%, 100% {
+        content: "Developer";
+        font-weight: bold;
+    }
+}
+
+.btn {
+    font-size:1.125rem ;
+    padding: 15px 85px;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: var(--red);
+    color: var(--white);
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background-color: var(--primary);
+    transition: .4s;
+}
+
+
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .home p {
+        font-size: 1.5rem;
+    }
+
+    .home img {
+        max-width: 100%;
+        height: auto;
+        padding-inline: 2.5rem;
+
+    }
+
+    footer {
+        font-size: 1.5rem;
+    }
+}
+
+/* novos media */
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home img {
+        height: auto;
+        max-width: 80%;
+    }
+
+    .home p {
+        font-size: 2rem; /* 32px */
+    }
+
+    .texto {
+        font-size: 2rem; /* 32px */
+    }
+
+    .btn {
+        width: 200px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home p {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    .home img {
+        max-width: 100%;
+        height: auto;
+        padding-inline: 1rem;
+    }
+
+    .texto {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    .btn {
+        width: 150px;
+        height: 40px;
+        font-size: 0.875rem;
+        padding: 8px 40px;
+    }
+
+    footer {
+        font-size: 1.5rem;
+    }
+}

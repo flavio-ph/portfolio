@@ -1,0 +1,194 @@
+.sobre {
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+.bio {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+}
+
+.bio span {
+    color: var(--red);
+    font-weight: bold;
+}
+
+.bio .dev {
+    color: var(--secondary);
+    font-weight: bold;
+    
+}
+
+.textos h2, p{
+    margin-bottom: 1rem ;
+}
+
+.techs {
+    padding-block: 1rem;
+}
+
+.icones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.icone {
+    font-size: 60px;
+}
+
+
+.avatar {
+    width: 150px;
+    border-radius: 80px;
+}
+
+@media (max-width: 767px) {
+    .sobre {
+        padding: 2rem 1rem;
+    }
+
+    .bio {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .bio .textos h2 {
+        font-size: 1.5rem;
+    }
+
+    .avatar {
+        width: 100px;
+        border-radius: 50px;
+    }
+
+    .icone {
+        font-size: 40px;
+    }
+
+    .icones {
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 767px) {
+    .sobre {
+        padding: 2rem 1rem;
+    }
+
+    .bio {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .bio .textos h2 {
+        font-size: 1.5rem;
+    }
+
+    .avatar {
+        width: 100px;
+        border-radius: 50px;
+    }
+
+    .icone {
+        font-size: 40px;
+    }
+
+    .icones {
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .sobre {
+        padding: 2rem;
+    }
+
+    .bio {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .bio .textos h2 {
+        font-size: 2rem;
+    }
+
+    .avatar {
+        width: 120px;
+        border-radius: 60px;
+    }
+
+    .icone {
+        font-size: 50px;
+    }
+
+    .icones {
+        flex-wrap: wrap;
+    }
+}
+
+/* Small desktop styles */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .sobre {
+        padding: 2rem;
+    }
+
+    .bio {
+        flex-direction: row;
+        text-align: left;
+        gap: 2.5rem;
+    }
+
+    .bio .textos h2 {
+        font-size: 2.5rem;
+    }
+
+    .avatar {
+        width: 130px;
+        border-radius: 65px;
+    }
+
+    .icone {
+        font-size: 55px;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1280px) {
+    .sobre {
+        padding: 2rem;
+    }
+
+    .bio {
+        flex-direction: row;
+        text-align: left;
+        gap: 3rem;
+    }
+
+    .bio .textos h2 {
+        font-size: 3rem;
+    }
+
+    .avatar {
+        width: 150px;
+        border-radius: 75px;
+    }
+
+    .icone {
+        font-size: 60px;
+    }
+}
