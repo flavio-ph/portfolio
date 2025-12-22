@@ -12,7 +12,7 @@ const About: React.FC = () => {
             className="rounded-3xl shadow-xl w-full border border-black/5 dark:border-white/5"
           />
           <div className="absolute -bottom-10 -right-10 p-8 glass rounded-3xl hidden md:block shadow-xl">
-            <div className="text-3xl font-bold text-pink-500">5+</div>
+            <div className="text-3xl font-bold text-pink-500">2</div>
             <div className="text-xs font-semibold uppercase tracking-wider opacity-60">Anos de Experiência</div>
           </div>
         </div>
