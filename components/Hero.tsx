@@ -62,25 +62,19 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="order-1 lg:order-2 relative flex justify-center items-center">
+        {/* Container da Ilustração: Oculto em mobile, visível em telas LG+ */}
+        <div className="hidden lg:flex order-1 lg:order-2 relative justify-center items-center">
           {/* Background Glow */}
           <div className="absolute w-[120%] h-[120%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
           
           <div className="relative group w-full max-w-xl">
-            {/* Main Illustration Component */}
+            {/* Main Illustration Component com animação global de flutuar */}
             <HeroIllustration 
-              className="w-full h-auto drop-shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-[float_6s_ease-in-out_infinite]"
+              className="w-full h-auto drop-shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-float"
             />
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(1deg); }
-        }
-      `}</style>
     </section>
   );
 };

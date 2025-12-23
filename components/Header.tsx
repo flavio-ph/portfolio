@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Github, Linkedin, Instagram, Menu, X } from 'lucide-react';
 import { Theme } from '../types';
 
@@ -10,6 +9,16 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detecta o scroll para alterar o estilo do header
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -21,7 +30,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 transition-all">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm' 
+          : 'bg-transparent border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="text-2xl font-bold tracking-tighter flex items-center">
           <span>Flávio</span>
@@ -43,13 +58,28 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
         <div className="flex items-center space-x-4">
           <div className="hidden lg:flex items-center space-x-3 border-r pr-4 border-slate-200 dark:border-white/10">
-            <a href="#" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+            <a 
+              href="https://www.linkedin.com/in/fl%C3%A1vio-almeida-804827361/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
+            >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="#" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+            <a 
+              href="https://github.com/flavio-ph" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
+            >
               <Github className="w-5 h-5" />
             </a>
-            <a href="#" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+            <a 
+              href="https://www.instagram.com/fl4viox_/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
+            >
               <Instagram className="w-5 h-5" />
             </a>
           </div>
@@ -75,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       {/* Mobile Navigation Menu */}
       <div 
         className={`md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-[#0f0f12] border-b border-slate-200 dark:border-white/10 transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-[400px] opacity-100 py-6' : 'max-h-0 opacity-0'
+          isMenuOpen ? 'max-h-[400px] opacity-100 py-6 shadow-xl' : 'max-h-0 opacity-0'
         }`}
       >
         <nav className="flex flex-col items-center space-y-6 px-6">
@@ -90,9 +120,30 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             </a>
           ))}
           <div className="flex space-x-6 pt-4 border-t border-slate-100 dark:border-white/5 w-full justify-center">
-            <a href="#" className="p-2 hover:text-pink-500 transition-colors"><Linkedin className="w-6 h-6" /></a>
-            <a href="#" className="p-2 hover:text-pink-500 transition-colors"><Github className="w-6 h-6" /></a>
-            <a href="#" className="p-2 hover:text-pink-500 transition-colors"><Instagram className="w-6 h-6" /></a>
+            <a 
+              href="https://www.linkedin.com/in/fl%C3%A1vio-almeida-804827361/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 hover:text-pink-500 transition-colors"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://github.com/flavio-ph" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 hover:text-pink-500 transition-colors"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://www.instagram.com/fl4viox_/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 hover:text-pink-500 transition-colors"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
           </div>
         </nav>
       </div>
