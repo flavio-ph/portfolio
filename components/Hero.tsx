@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import HeroIllustration from './HeroIllustration';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -35,9 +36,9 @@ const Hero: React.FC = () => {
   }, [displayText, isDeleting, loopNum, typingSpeed]);
 
   return (
-    <section id="home" className="pt-32 pb-20 px-6 min-h-screen flex items-center">
+    <section id="home" className="pt-32 pb-20 px-6 min-h-screen flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 order-2 lg:order-1">
+        <div className="space-y-8 order-2 lg:order-1 relative z-10">
           <div className="space-y-2">
             <h3 className="text-pink-500 font-bold tracking-widest text-sm uppercase">Bem-vindo ao meu portfólio</h3>
             <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight">
@@ -54,33 +55,30 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10">
+            <button className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10 shadow-xl shadow-pink-500/10">
               Vamos Conectar
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
             </button>
           </div>
         </div>
 
-        <div className="order-1 lg:order-2 relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=800" 
-            alt="Astronaut in Space" 
-            className="relative w-full max-w-md mx-auto rounded-3xl object-cover shadow-2xl animate-[float_6s_ease-in-out_infinite]"
-          />
-          <div className="absolute top-10 right-10 p-4 glass rounded-2xl animate-bounce">
-            🚀
-          </div>
-          <div className="absolute bottom-10 left-0 p-4 glass rounded-2xl animate-pulse delay-1000">
-            ⭐
+        <div className="order-1 lg:order-2 relative flex justify-center items-center">
+          {/* Background Glow */}
+          <div className="absolute w-[120%] h-[120%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+          
+          <div className="relative group w-full max-w-xl">
+            {/* Main Illustration Component */}
+            <HeroIllustration 
+              className="w-full h-auto drop-shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-[float_6s_ease-in-out_infinite]"
+            />
           </div>
         </div>
       </div>
 
       <style>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-30px) rotate(1deg); }
         }
       `}</style>
     </section>
