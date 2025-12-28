@@ -1,6 +1,8 @@
+// flavio-ph/portfolio/portfolio-88f00aaa4c75c6a8195d69ef9ef510483bf8578c/components/Projects.tsx
 
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
+import { ExternalLink, Github, Layers } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Todos');
@@ -10,24 +12,30 @@ const Projects: React.FC = () => {
     : PROJECTS.filter(p => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-24 px-6 bg-slate-100/30 dark:bg-white/[0.02]">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <h2 className="text-4xl font-bold text-center">Projetos Recentes</h2>
+    <section id="projects" className="py-24 px-6 relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto space-y-16">
+        <div className="space-y-4 text-center">
+          <h2 className="text-sm font-bold tracking-[0.3em] uppercase text-pink-500">Portfólio</h2>
+          <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Projetos em Destaque</h3>
+        </div>
         
-        <div className="flex justify-center border-b border-slate-200 dark:border-white/10">
-          <div className="flex space-x-8">
+        {/* Modern Pills Filter */}
+        <div className="flex justify-center">
+          <div className="flex flex-wrap justify-center gap-2 p-1 bg-slate-200/50 dark:bg-white/5 rounded-full backdrop-blur-sm border border-slate-200 dark:border-white/10">
             {['Todos', 'Front-end', 'Back-end', 'Full-stack'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-4 px-2 text-sm font-medium transition-all relative ${
-                  activeTab === tab ? 'text-pink-500' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  activeTab === tab 
+                    ? 'bg-white dark:bg-white/10 text-pink-500 shadow-lg shadow-pink-500/10 scale-105' 
+                    : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-white/50 dark:hover:bg-white/5'
                 }`}
               >
                 {tab}
-                {activeTab === tab && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-pink-500 rounded-full" />
-                )}
               </button>
             ))}
           </div>
@@ -35,19 +43,47 @@ const Projects: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group bg-white dark:bg-white/5 rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <div className="aspect-video overflow-hidden">
+            <div 
+              key={project.id} 
+              className="group relative bg-white/40 dark:bg-[#0f0f12]/40 backdrop-blur-md rounded-3xl overflow-hidden border border-slate-200/60 dark:border-white/5 hover:border-pink-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/5 hover:-translate-y-2"
+            >
+              {/* Image Container with Overlay Effect */}
+              <div className="relative aspect-video overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
+                  <button className="p-3 bg-white text-slate-900 rounded-full hover:scale-110 transition-transform shadow-lg" title="Ver Demo">
+                    <ExternalLink size={20} />
+                  </button>
+                  <button className="p-3 bg-slate-900 text-white border border-white/20 rounded-full hover:scale-110 transition-transform shadow-lg" title="Ver Código">
+                    <Github size={20} />
+                  </button>
+                </div>
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-wider text-pink-500 border border-pink-500/20 shadow-lg">
+                  {project.category}
+                </div>
               </div>
-              <div className="p-8 space-y-2">
-                <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm">
-                  {project.description}
-                </p>
+
+              <div className="p-8 space-y-6">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-pink-500 transition-colors">
+                    {project.title}
+                  </h3>
+                  {/* Parsing description to create fake tags for visualization */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.description.split('&').map((tech, i) => (
+                      <span key={i} className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/5">
+                        <Layers size={12} className="text-indigo-500" />
+                        {tech.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}

@@ -1,28 +1,47 @@
 
 import React from 'react';
 import { Project, Skill } from './types';
+import metricflowImage from './assets/metricflow.gif';
+import payment from './assets/payment.gif';
+import fisio from './assets/fisio.gif'; 
+import barbearia from './assets/barber.gif';
+import milhas from './assets/milhas.gif';
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'Travel World',
-    category: 'Full-stack',
-    image: 'https://picsum.photos/id/1015/800/450',
-    description: 'Design & Dev'
+    title: 'MetricFlow',
+    category: 'Front-end',
+    image: metricflowImage,
+    description: 'React & Tailwind'
   },
   {
     id: 2,
-    title: 'E-commerce API',
-    category: 'Back-end',
-    image: 'https://picsum.photos/id/1018/800/450',
-    description: 'Node.js & PostgreSQL'
+    title: 'Payment Gateway',
+    category: 'Full-stack',
+    image: payment,
+    description: 'Java, Spring boot, Mysql & React'
   },
   {
     id: 3,
-    title: 'Dashboard Admin',
+    title: 'Portfolio Fisio Marcela',
     category: 'Front-end',
-    image: 'https://picsum.photos/id/1019/800/450',
+    image: fisio,
     description: 'React & Tailwind'
+  },
+    {
+    id: 4,
+    title: 'Barbearia Corte e Navalha',
+    category: 'Front-end',
+    image: barbearia,
+    description: 'React & Tailwind'
+  },
+    {
+    id: 5,
+    title: 'MilhasPro',
+    category: 'Full-stack',
+    image: milhas,
+    description: 'Java, Spring boot, PostgreSQL & React'
   }
 ];
 
