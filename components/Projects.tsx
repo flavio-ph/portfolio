@@ -1,11 +1,10 @@
-// flavio-ph/portfolio/portfolio-88f00aaa4c75c6a8195d69ef9ef510483bf8578c/components/Projects.tsx
-
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
-import { ExternalLink, Github, Layers } from 'lucide-react';
+import { ExternalLink, Github, Layers, X } from 'lucide-react'; // Adicionado import do X
 
 const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState('Todos');
+  const [selectedDemo, setSelectedDemo] = useState<string | null>(null); // Novo estado para o modal
 
   const filteredProjects = activeTab === 'Todos' 
     ? PROJECTS 
@@ -55,7 +54,12 @@ const Projects: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                  <button className="p-3 bg-white text-slate-900 rounded-full hover:scale-110 transition-transform shadow-lg" title="Ver Demo">
+                  {/* Botão Ver Demo modificado com onClick */}
+                  <button 
+                    onClick={() => setSelectedDemo(project.image)}
+                    className="p-3 bg-white text-slate-900 rounded-full hover:scale-110 transition-transform shadow-lg" 
+                    title="Ver Demo"
+                  >
                     <ExternalLink size={20} />
                   </button>
                   <button className="p-3 bg-slate-900 text-white border border-white/20 rounded-full hover:scale-110 transition-transform shadow-lg" title="Ver Código">
@@ -89,6 +93,32 @@ const Projects: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal de Visualização da Demo */}
+      {selectedDemo && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/95 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedDemo(null)}
+        >
+          <div className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center">
+            {/* Botão Fechar */}
+            <button
+              onClick={() => setSelectedDemo(null)}
+              className="absolute -top-12 right-0 md:-right-4 text-white/70 hover:text-white transition-colors p-2"
+            >
+              <X size={32} />
+            </button>
+            
+            {/* Imagem em tamanho ampliado */}
+            <img 
+              src={selectedDemo} 
+              alt="Project Demo Preview" 
+              className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()} 
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
