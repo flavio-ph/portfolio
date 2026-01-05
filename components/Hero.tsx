@@ -11,6 +11,14 @@ const Hero: React.FC = () => {
 
   const phrases = ["Desenvolvedor web", "Desenvolvedor frontend", "Desenvolvedor backend"];
 
+  function abrirWhatsapp() {
+    const telefone = '5579998975808';
+    const mensagem = "Olá Flávio!"
+    
+    const url = `https://wa.me/qr/5G7H5EYTH4CDF1`
+    window.open(url, '_blank'); 
+  }
+
   useEffect(() => {
     const handleTyping = () => {
       const i = loopNum % phrases.length;
@@ -55,7 +63,7 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10 shadow-xl shadow-pink-500/10">
+            <button onClick={abrirWhatsapp} className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10 shadow-xl shadow-pink-500/10">
               Vamos Conectar
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
             </button>

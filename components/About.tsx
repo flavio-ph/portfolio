@@ -40,9 +40,9 @@ const About: React.FC = () => {
               <p>
               Sou um desenvolvedor com experiência na criação de soluções digitais funcionais e bem estruturadas, sempre com foco em qualidade, organização e boa experiência para o usuário. Ao longo da minha trajetória, venho evoluindo constantemente, aplicando boas práticas e buscando aprimorar minhas entregas.
             </p>
-            <p>
-              Atuo no desenvolvimento de aplicações completas, participando desde a concepção das ideias até a implementação e manutenção das soluções, sempre prezando por código limpo, escalável e de fácil manutenção.
-            </p>
+          <p>
+  Atuo no desenvolvimento de aplicações completas, desde a concepção das ideias até a implementação e manutenção das soluções, utilizando tanto abordagens tradicionais quanto plataformas low-code, o que me permite entregar soluções eficientes, escaláveis e de fácil manutenção, sempre prezando por código limpo e bem estruturado.
+</p>
             <p>
               Acredito que a tecnologia deve ser utilizada para resolver problemas reais e gerar valor. Por isso, busco equilibrar eficiência técnica, clareza e usabilidade, contribuindo para o crescimento dos projetos e para a evolução contínua como profissional.
             </p>
