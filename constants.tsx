@@ -7,6 +7,7 @@ import fisio from './assets/fisio.gif';
 import barbearia from './assets/barber.gif';
 import milhas from './assets/milhas.gif';
 import bubbleIcon from './assets/bubbleicon.png';
+import educChain from './assets/educChain.gif';
 
 export const PROJECTS: Project[] = [
   {
@@ -43,7 +44,14 @@ export const PROJECTS: Project[] = [
     category: 'Full-stack',
     image: milhas,
     description: 'Java, Spring boot, PostgreSQL & React'
-  }
+  },
+    {
+    id: 6,
+    title: 'EducChain',
+    category: 'Full-stack',
+    image: educChain,
+    description: 'Golang, MySql, Typescript & React'
+  },
 ];
 
 export const SKILLS: Skill[] = [
