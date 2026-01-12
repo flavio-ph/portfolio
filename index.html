@@ -27,7 +27,7 @@
         scroll-behavior: smooth;
       }
       section {
-        scroll-margin-top: 5rem; /* Aligns sections below the 80px (h-20) header */
+        scroll-margin-top: 5rem; 
       }
       .gradient-text {
         background: linear-gradient(90deg, #ec4899, #8b5cf6);
@@ -47,26 +47,24 @@
         transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
       }
 
-      /* --- NOVA BARRA DE ROLAGEM PERSONALIZADA --- */
       ::-webkit-scrollbar {
         width: 10px;
       }
 
       ::-webkit-scrollbar-track {
-        background: #0f0f12; /* Cor de fundo do site (dark mode) */
+        background: #0f0f12; 
       }
 
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #ec4899, #8b5cf6); /* Gradiente Rosa -> Roxo */
+        background: linear-gradient(to bottom, #ec4899, #8b5cf6); 
         border-radius: 5px;
-        border: 2px solid #0f0f12; /* Cria um efeito de espaçamento interno */
+        border: 2px solid #0f0f12; 
       }
 
       ::-webkit-scrollbar-thumb:hover {
         background: linear-gradient(to bottom, #db2777, #7c3aed);
       }
       
-      /* Suporte para Firefox (Opcional, pois Firefox usa padrão diferente) */
       html {
         scrollbar-width: thin;
         scrollbar-color: #ec4899 #0f0f12;
