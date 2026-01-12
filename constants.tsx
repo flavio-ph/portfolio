@@ -1,27 +1,22 @@
 
 import React from 'react';
 import { Project, Skill } from './types';
-import metricflowImage from './assets/metricflow.gif';
-import payment from './assets/payment.gif';
-import fisio from './assets/fisio.gif'; 
-import barbearia from './assets/barber.gif';
-import milhas from './assets/milhas.gif';
-import bubbleIcon from './assets/bubbleicon.png';
-import educChain from './assets/educChain.gif';
+import bubbleIcon from './src/assets/bubbleicon.png';
+import fisio from './src/assets/fisio.gif';
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
     title: 'MetricFlow',
     category: 'Front-end',
-    image: metricflowImage,
+    image: 'https://i.postimg.cc/TPxMfWpQ/metricflow.gif',
     description: 'React & Tailwind'
   },
   {
     id: 2,
     title: 'Payment Gateway',
     category: 'Full-stack',
-    image: payment,
+    image: 'https://i.postimg.cc/4xD4tdnt/payment.gif',
     description: 'Java, Spring boot, Mysql & React'
   },
   {
@@ -35,21 +30,21 @@ export const PROJECTS: Project[] = [
     id: 4,
     title: 'Barbearia Corte e Navalha',
     category: 'Front-end',
-    image: barbearia,
+    image: 'https://i.postimg.cc/nzd64RTd/barber.gif',
     description: 'React & Tailwind'
   },
     {
     id: 5,
     title: 'MilhasPro',
     category: 'Full-stack',
-    image: milhas,
+    image: 'https://i.postimg.cc/hGnWc7fC/milhas.gif',
     description: 'Java, Spring boot, PostgreSQL & React'
   },
     {
     id: 6,
     title: 'EducChain',
     category: 'Full-stack',
-    image: educChain,
+    image: 'https://i.postimg.cc/4NwhzzTj/educ_Chain.gif',
     description: 'Golang, MySql, Typescript & React'
   },
 ];

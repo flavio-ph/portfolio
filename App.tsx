@@ -1,18 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import Header from './src/components/Header';
+import Hero from './src/components/Hero';
+import About from './src/components/About';
+import Skills from './src/components/Skills';
+import Projects from './src/components/Projects';
+import Footer from './src/components/Footer';
 import { Theme } from './types';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(Theme.DARK);
 
   useEffect(() => {
-    // Check local storage or system preference
     const savedTheme = localStorage.getItem('theme') as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
@@ -24,7 +23,6 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Apply theme class to HTML element for Tailwind's dark mode class strategy
     const root = window.document.documentElement;
     if (theme === Theme.DARK) {
       root.classList.add('dark');

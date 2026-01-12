@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <style>
+    /* Cor Padrão (Tema Claro) - Slate-900 (Cinza Escuro) */
+    :root { color: #0f172a; }
+
+    /* Cor para Tema Escuro - Pink-500 (Rosa do seu tema) */
+    @media (prefers-color-scheme: dark) {
+      :root { color: #ec4899; }
+    }
+  </style>
+
+  <path d="m1.293 12.707 4 4a1 1 0 1 0 1.414-1.414L3.414 12l3.293-3.293a1 1 0 1 0-1.414-1.414l-4 4a1 1 0 0 0 0 1.414zM18.707 7.293a1 1 0 1 0-1.414 1.414L20.586 12l-3.293 3.293a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414zM13.039 4.726l-4 14a1 1 0 0 0 .686 1.236A1.053 1.053 0 0 0 10 20a1 1 0 0 0 .961-.726l4-14a1 1 0 1 0-1.922-.548z"/>
+</svg>
