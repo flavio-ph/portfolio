@@ -3,6 +3,7 @@ import React from 'react';
 import { Project, Skill } from './types';
 import bubbleIcon from './src/assets/bubbleicon.png';
 import fisio from './src/assets/fisio.gif';
+import finanquest from './src/assets/finanquest.gif';
 
 export const PROJECTS: Project[] = [
   {
@@ -46,6 +47,13 @@ export const PROJECTS: Project[] = [
     category: 'Full-stack',
     image: 'https://i.postimg.cc/4NwhzzTj/educ_Chain.gif',
     description: 'Golang, MySql, Typescript & React'
+  },
+    {
+    id: 7,
+    title: 'FinanQuest',
+    category: 'Full-stack',
+    image: finanquest,
+    description: 'Java, Spring, MySql & Typescript, React Native'
   },
 ];
 
