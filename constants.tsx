@@ -11,49 +11,70 @@ export const PROJECTS: Project[] = [
     title: 'MetricFlow',
     category: 'Front-end',
     image: 'https://i.postimg.cc/TPxMfWpQ/metricflow.gif',
-    description: 'React & Tailwind'
+    description: 'SaaS de métricas para gestores com dashboard interativo.',
+    tags: ['React', 'Tailwind'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: 'https://metricflow.com.br'
   },
   {
     id: 2,
     title: 'Payment Gateway',
     category: 'Full-stack',
     image: 'https://i.postimg.cc/4xD4tdnt/payment.gif',
-    description: 'Java, Spring boot, Mysql & React'
+    description: 'Sistema completo de pagamentos com processamento em tempo real.',
+    tags: ['Java', 'Spring Boot', 'MySQL', 'React'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
   {
     id: 3,
     title: 'Portfolio Fisio Marcela',
     category: 'Front-end',
     image: fisio,
-    description: 'React & Tailwind'
+    description: 'Site institucional moderno para profissional de saúde.',
+    tags: ['React', 'Tailwind'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
-    {
+  {
     id: 4,
     title: 'Barbearia Corte e Navalha',
     category: 'Front-end',
     image: 'https://i.postimg.cc/nzd64RTd/barber.gif',
-    description: 'React & Tailwind'
+    description: 'Landing page para agendamento e apresentação de serviços.',
+    tags: ['React', 'Tailwind'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
-    {
+  {
     id: 5,
     title: 'MilhasPro',
     category: 'Full-stack',
     image: 'https://i.postimg.cc/hGnWc7fC/milhas.gif',
-    description: 'Java, Spring boot, PostgreSQL & React'
+    description: 'Plataforma de gestão de milhas aéreas e viagens.',
+    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'React'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
-    {
+  {
     id: 6,
     title: 'EducChain',
     category: 'Full-stack',
     image: 'https://i.postimg.cc/4NwhzzTj/educ_Chain.gif',
-    description: 'Golang, MySql, Typescript & React'
+    description: 'Solução educacional com gamificação e blockchain.',
+    tags: ['Golang', 'MySQL', 'Typescript', 'React'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
-    {
+  {
     id: 7,
     title: 'FinanQuest',
     category: 'Full-stack',
     image: finanquest,
-    description: 'Java, Spring, MySql & Typescript, React Native'
+    description: 'App mobile de controle financeiro pessoal.',
+    tags: ['Java', 'Spring', 'MySQL', 'React Native'],
+    repositoryUrl: 'https://github.com/flavio-ph',
+    demoUrl: '#'
   },
 ];
 

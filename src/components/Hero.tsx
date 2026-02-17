@@ -9,14 +9,14 @@ const Hero: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["Desenvolvedor web", "Desenvolvedor frontend", "Desenvolvedor backend"];
+  const phrases = ["Desenvolvedor React", "Desenvolvedor Node.js", "Desenvolvedor Full Stack"];
 
   function abrirWhatsapp() {
     const telefone = '5579998975808';
-    const mensagem = "Olá Flávio!"
-    
-    const url = `https://wa.me/qr/5G7H5EYTH4CDF1`
-    window.open(url, '_blank'); 
+    const mensagem = "Olá Flávio! Vim pelo seu portfólio."
+
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`
+    window.open(url, '_blank');
   }
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
       const i = loopNum % phrases.length;
       const fullText = phrases[i];
 
-      setDisplayText(isDeleting 
-        ? fullText.substring(0, displayText.length - 1) 
+      setDisplayText(isDeleting
+        ? fullText.substring(0, displayText.length - 1)
         : fullText.substring(0, displayText.length + 1)
       );
 
@@ -57,11 +57,11 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             <p className="text-slate-600 dark:text-slate-400 text-lg max-w-lg leading-relaxed pt-4">
-              Transformo ideias complexas em código limpo, escalável e de alta performance. 
+              Transformo ideias complexas em código limpo, escalável e de alta performance.
               Foco em UX/UI minimalista e eficiência no back-end.
             </p>
           </div>
-          
+
           <div className="flex flex-wrap gap-4">
             <button onClick={abrirWhatsapp} className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10 shadow-xl shadow-pink-500/10">
               Vamos Conectar
@@ -74,10 +74,10 @@ const Hero: React.FC = () => {
         <div className="hidden lg:flex order-1 lg:order-2 relative justify-center items-center">
           {/* Background Glow */}
           <div className="absolute w-[120%] h-[120%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-          
+
           <div className="relative group w-full max-w-xl">
             {/* Main Illustration Component com animação global de flutuar */}
-            <HeroIllustration 
+            <HeroIllustration
               className="w-full h-auto drop-shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-float"
             />
           </div>

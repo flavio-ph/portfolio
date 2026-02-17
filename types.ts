@@ -5,6 +5,9 @@ export interface Project {
   category: 'Front-end' | 'Back-end' | 'Full-stack';
   image: string;
   description: string;
+  tags: string[];
+  repositoryUrl?: string;
+  demoUrl?: string;
 }
 
 export interface Skill {
