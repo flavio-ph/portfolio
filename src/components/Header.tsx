@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Github, Linkedin, Instagram, Menu, X } from 'lucide-react';
+import { Moon, Sun, Github, Linkedin, Instagram, Home, User, Code, Briefcase, Mail } from 'lucide-react';
 import { Theme } from '../../types';
 
 interface HeaderProps {
@@ -8,10 +8,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Detecta o scroll para alterar o estilo do header
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -21,132 +19,90 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projetos', href: '#projects' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Home', href: '#home', icon: Home },
+    { name: 'Sobre', href: '#about', icon: User },
+    { name: 'Skills', href: '#skills', icon: Code },
+    { name: 'Projetos', href: '#projects', icon: Briefcase },
+    { name: 'Contato', href: '#contact', icon: Mail },
   ];
 
-  const closeMenu = () => setIsMenuOpen(false);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? 'glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm'
-        : 'bg-transparent border-b border-transparent'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="text-2xl font-bold tracking-tighter flex items-center">
-          <span>Flávio</span>
-          <span className="text-pink-500 ml-1">Almeida</span>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="hover:text-pink-500 transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center space-x-4">
-          <div className="hidden lg:flex items-center space-x-3 border-r pr-4 border-slate-200 dark:border-white/10">
-            <a
-              href="https://www.linkedin.com/in/fl%C3%A1vio-almeida-804827361/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com/flavio-ph"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.instagram.com/flaviobzp/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-          </div>
-
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:scale-110 active:scale-95 transition-all duration-200"
-            aria-label="Toggle dark mode"
-          >
-            {theme === Theme.DARK ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-indigo-600" />}
-          </button>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-[#0f0f12] border-b border-slate-200 dark:border-white/10 transition-all duration-300 overflow-y-auto ${isMenuOpen ? 'max-h-[85vh] opacity-100 py-6 shadow-xl' : 'max-h-0 opacity-0'
+    <>
+      {/* Header Desktop */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            ? 'glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm'
+            : 'bg-transparent border-b border-transparent'
           }`}
       >
-        <nav className="flex flex-col items-center space-y-6 px-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium hover:text-pink-500 transition-colors"
-              onClick={closeMenu}
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="flex space-x-6 pt-4 border-t border-slate-100 dark:border-white/5 w-full justify-center">
-            <a
-              href="https://www.linkedin.com/in/fl%C3%A1vio-almeida-804827361/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:text-pink-500 transition-colors"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="https://github.com/flavio-ph"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:text-pink-500 transition-colors"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.instagram.com/fl4viox_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:text-pink-500 transition-colors"
-            >
-              <Instagram className="w-6 h-6" />
-            </a>
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="text-2xl font-bold tracking-tighter flex items-center">
+            <span>Flávio</span>
+            <span className="text-pink-500 ml-1">Almeida</span>
           </div>
+
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="hover:text-pink-500 transition-colors duration-300"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-3 border-r pr-4 border-slate-200 dark:border-white/10">
+              <a href="https://www.linkedin.com/in/fl%C3%A1vio-almeida-804827361/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://github.com/flavio-ph" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/fl4viox_/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/5 hover:text-pink-500 transition-all duration-300">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:scale-110 active:scale-95 transition-all duration-200"
+              aria-label="Toggle dark mode"
+            >
+              {theme === Theme.DARK ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-indigo-600" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Menu Inferior Mobile (Design de Pílula Flutuante) */}
+      <div className="md:hidden fixed bottom-6 left-0 right-0 z-50 px-4">
+        <nav className="max-w-md mx-auto bg-white/70 dark:bg-[#0f0f12]/70 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 rounded-full shadow-2xl shadow-black/10">
+          <ul className="flex justify-around items-center h-16 px-2">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <li key={link.name} className="flex-1">
+                  <a
+                    href={link.href}
+                    className="flex flex-col items-center justify-center space-y-1 group py-2"
+                  >
+                    <div className="p-1.5 rounded-full group-hover:bg-pink-500/10 dark:group-hover:bg-pink-500/20 transition-all duration-300">
+                      <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 group-hover:text-pink-500 transition-colors" />
+                    </div>
+                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 group-hover:text-pink-500 transition-colors">
+                      {link.name}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </div>
-    </header>
+    </>
   );
 };
 
