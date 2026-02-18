@@ -9,14 +9,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
     { name: 'Home', href: '#home', icon: Home },
@@ -25,6 +18,31 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     { name: 'Projetos', href: '#projects', icon: Briefcase },
     { name: 'Contato', href: '#contact', icon: Mail },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Controle do background do Header Desktop
+      setScrolled(window.scrollY > 20);
+
+      // Lógica de Scroll Spy
+      const scrollPosition = window.scrollY + 200; // Offset para detectar a seção um pouco antes
+
+      navLinks.forEach((link) => {
+        const sectionId = link.href.replace('#', '');
+        const element = document.getElementById(sectionId);
+
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -46,7 +64,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-pink-500 transition-colors duration-300"
+                className={`transition-colors duration-300 ${activeSection === link.href.replace('#', '') ? 'text-pink-500 font-bold' : 'hover:text-pink-500'
+                  }`}
               >
                 {link.name}
               </a>
@@ -77,22 +96,26 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         </div>
       </header>
 
-      {/* Menu Inferior Mobile (Design de Pílula Flutuante) */}
+      {/* Menu Inferior Mobile (Pílula com Active State) */}
       <div className="md:hidden fixed bottom-6 left-0 right-0 z-50 px-4">
         <nav className="max-w-md mx-auto bg-white/70 dark:bg-[#0f0f12]/70 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 rounded-full shadow-2xl shadow-black/10">
           <ul className="flex justify-around items-center h-16 px-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
+              const isActive = activeSection === link.href.replace('#', '');
               return (
                 <li key={link.name} className="flex-1">
                   <a
                     href={link.href}
                     className="flex flex-col items-center justify-center space-y-1 group py-2"
                   >
-                    <div className="p-1.5 rounded-full group-hover:bg-pink-500/10 dark:group-hover:bg-pink-500/20 transition-all duration-300">
-                      <Icon className="w-5 h-5 text-slate-500 dark:text-slate-400 group-hover:text-pink-500 transition-colors" />
+                    <div className={`p-1.5 rounded-full transition-all duration-300 ${isActive ? 'bg-pink-500/20' : 'group-hover:bg-pink-500/10 dark:group-hover:bg-pink-500/20'
+                      }`}>
+                      <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-pink-500' : 'text-slate-500 dark:text-slate-400 group-hover:text-pink-500'
+                        }`} />
                     </div>
-                    <span className="text-[8px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 group-hover:text-pink-500 transition-colors">
+                    <span className={`text-[8px] font-bold uppercase tracking-wider transition-colors ${isActive ? 'text-pink-500' : 'text-slate-400 dark:text-slate-500 group-hover:text-pink-500'
+                      }`}>
                       {link.name}
                     </span>
                   </a>
