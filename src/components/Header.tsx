@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Github, Linkedin, Instagram, Home, User, Code, Briefcase, Mail } from 'lucide-react';
+import { Moon, Sun, Github, Linkedin, Instagram, Home, User, Code, Briefcase, Mail, Layers } from 'lucide-react';
 import { Theme } from '../../types';
 
 interface HeaderProps {
@@ -14,33 +14,43 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const navLinks = [
     { name: 'Home', href: '#home', icon: Home },
     { name: 'Sobre', href: '#about', icon: User },
+    { name: 'Trajetória', href: '#experience', icon: Briefcase },
     { name: 'Skills', href: '#skills', icon: Code },
-    { name: 'Projetos', href: '#projects', icon: Briefcase },
+    { name: 'Projetos', href: '#projects', icon: Layers },
     { name: 'Contato', href: '#contact', icon: Mail },
   ];
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Controle do background do Header Desktop
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Controle do background do Header Desktop
+          setScrolled(window.scrollY > 20);
 
-      // Lógica de Scroll Spy
-      const scrollPosition = window.scrollY + 200; // Offset para detectar a seção um pouco antes
+          // Lógica de Scroll Spy
+          const scrollPosition = window.scrollY + 200; // Offset para detectar a seção um pouco antes
 
-      navLinks.forEach((link) => {
-        const sectionId = link.href.replace('#', '');
-        const element = document.getElementById(sectionId);
+          navLinks.forEach((link) => {
+            const sectionId = link.href.replace('#', '');
+            const element = document.getElementById(sectionId);
 
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-          }
-        }
-      });
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(sectionId);
+              }
+            }
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -49,8 +59,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       {/* Header Desktop */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? 'glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm'
-            : 'bg-transparent border-b border-transparent'
+          ? 'glass backdrop-blur-md border-b border-slate-200 dark:border-white/10 shadow-sm'
+          : 'bg-transparent border-b border-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">

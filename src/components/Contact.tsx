@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Mail, Linkedin, Github, Instagram, ArrowUpRight } from 'lucide-react';
+import { CONTACT_INFO } from '../../constants';
 
 const Contact: React.FC = () => {
     return (
@@ -25,7 +26,7 @@ const Contact: React.FC = () => {
                             <p className="text-slate-500 dark:text-slate-400 text-sm">Tem alguma dúvida ou proposta?</p>
                         </div>
                         <a
-                            href="https://mail.google.com/mail/?view=cm&fs=1&to=flaviophalmeida@gmail.com"
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_INFO.email}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2"

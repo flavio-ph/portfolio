@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Project, Skill } from './types';
+import { Project, Skill, Experience } from './types';
 import bubbleIcon from './src/assets/bubbleicon.png';
 import fisio from './src/assets/fisio.gif';
 import finanquest from './src/assets/finanquest.gif';
@@ -78,6 +78,12 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+export const CONTACT_INFO = {
+  phone: '5579998975808',
+  email: 'flaviophalmeida@gmail.com',
+  whatsappMessage: 'Olá Flávio! Vim pelo seu portfólio.',
+};
+
 export const SKILLS: Skill[] = [
   { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
@@ -91,5 +97,31 @@ export const SKILLS: Skill[] = [
   { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
   { name: 'Bubble.io', icon: bubbleIcon },
   { name: 'n8n', icon: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/n8n.svg' },
+];
 
+export const EXPERIENCES: Experience[] = [
+  {
+    id: 1,
+    company: "Freelance",
+    role: "Desenvolvedor Full Stack",
+    period: "2023 - Presente",
+    description: "Desenvolvimento de soluções sob medida para clientes, focando em performance e escalabilidade.",
+    achievements: [
+      "Criação do sistema FinanQuest reduzindo o tempo de gestão financeira manual dos usuários.",
+      "Desenvolvimento de Portfólios e Landing Pages convertendo 30% a mais de leads."
+    ],
+    technologies: ["React", "Typescript", "Tailwind CSS", "Node.js"]
+  },
+  {
+    id: 2,
+    company: "Projetos Pessoais & Estudos Avançados",
+    role: "Engenheiro de Software",
+    period: "2022 - 2023",
+    description: "Período dedicado à arquitetura de software e construção de projetos complexos backend.",
+    achievements: [
+      "Implementação do Payment Gateway em Java com Spring Boot e processamento em tempo real.",
+      "Aprofundamento em DevOps, Docker e banco de dados relacionais (PostgreSQL, MySQL)."
+    ],
+    technologies: ["Java", "Spring Boot", "Docker", "MySQL"]
+  }
 ];

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './src/components/Header';
 import Hero from './src/components/Hero';
 import About from './src/components/About';
+import Experience from './src/components/Experience';
 import Skills from './src/components/Skills';
 import Projects from './src/components/Projects';
 import Contact from './src/components/Contact';
@@ -45,6 +46,7 @@ const App: React.FC = () => {
       <main className="theme-transition">
         <Hero />
         <About />
+        <Experience />
         <Skills />
         <Projects />
         <Contact />

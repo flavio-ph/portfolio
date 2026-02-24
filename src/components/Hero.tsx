@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import HeroIllustration from './HeroIllustration';
+import { CONTACT_INFO } from '../../constants';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
@@ -9,13 +10,10 @@ const Hero: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["Desenvolvedor React", "Desenvolvedor Node.js", "Desenvolvedor Full Stack"];
+  const phrases = ["Desenvolvedor React", "Desenvolvedor Java", "Desenvolvedor Web"];
 
   function abrirWhatsapp() {
-    const telefone = '5579998975808';
-    const mensagem = "Olá Flávio! Vim pelo seu portfólio."
-
-    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`
+    const url = `https://wa.me/${CONTACT_INFO.phone}?text=${encodeURIComponent(CONTACT_INFO.whatsappMessage)}`;
     window.open(url, '_blank');
   }
 

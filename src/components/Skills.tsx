@@ -11,7 +11,7 @@ const Skills: React.FC = () => {
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <h2 className="text-sm font-bold tracking-[0.3em] uppercase text-pink-500">Tech Stack</h2>
-          <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Especialidades Técnicas</h3>
+          <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight">Tecnologias</h3>
           <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Foco em tecnologias modernas e performáticas para entregar soluções escaláveis de ponta a ponta.
           </p>
@@ -19,22 +19,22 @@ const Skills: React.FC = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
           {SKILLS.map((skill) => (
-            <div 
+            <div
               key={skill.name}
               className="group relative p-8 rounded-[32px] border border-slate-200/60 dark:border-white/5 bg-white/40 dark:bg-white/[0.02] hover:bg-white dark:hover:bg-white/[0.05] transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/5 hover:-translate-y-1"
             >
               {/* Subtle background glow on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 to-purple-600/0 group-hover:from-pink-500/5 group-hover:to-purple-600/5 rounded-[32px] transition-all duration-500"></div>
-              
+
               <div className="relative flex flex-col items-center space-y-6">
                 <div className="w-16 h-16 flex items-center justify-center p-2 transition-transform duration-500 group-hover:scale-110">
-                  <img 
-                    src={skill.icon} 
-                    alt={skill.name} 
-                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" 
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
-                
+
                 <div className="text-center">
                   <span className="text-sm font-bold tracking-wider text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">
                     {skill.name}
@@ -46,7 +46,7 @@ const Skills: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="pt-8 text-center">
           <p className="text-sm text-slate-400 italic font-light tracking-wide">
             "Sempre explorando novas fronteiras tecnológicas."
