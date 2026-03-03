@@ -4,6 +4,7 @@ import { Project, Skill, Experience } from './types';
 import bubbleIcon from './src/assets/bubbleicon.png';
 import fisio from './src/assets/fisio.gif';
 import finanquest from './src/assets/finanquest.gif';
+import milhaspro from './src/assets/MilhasPro.gif';
 
 export const PROJECTS: Project[] = [
   {
@@ -50,7 +51,7 @@ export const PROJECTS: Project[] = [
     id: 5,
     title: 'MilhasPro',
     category: 'Full-stack',
-    image: 'https://i.postimg.cc/hGnWc7fC/milhas.gif',
+    image: milhaspro,
     description: 'Plataforma de gestão de milhas aéreas e viagens.',
     tags: ['Java', 'Spring Boot', 'PostgreSQL', 'React'],
     repositoryUrl: 'https://github.com/flavio-ph',
