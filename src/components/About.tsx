@@ -1,6 +1,9 @@
 import React from 'react';
 import { Download } from 'lucide-react';
 
+// Importando o currículo diretamente da pasta assets
+import cvFile from '../assets/CV - Flávio Almeida.pdf';
+
 const About: React.FC = () => {
   return (
     <section id="about" className="py-24 px-6 bg-white dark:bg-[#0f0f12] theme-transition overflow-hidden">
@@ -63,8 +66,10 @@ const About: React.FC = () => {
             </div>
 
             <a
-              href="/curriculo.pdf"
-              download="Curriculo_Flavio.pdf"
+              href={cvFile}
+              download="CV - Flávio Almeida.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-bold flex items-center justify-center transition-all hover:-translate-y-1 shadow-xl shadow-pink-500/20 w-fit group md:ml-4"
             >
               Baixar Currículo
