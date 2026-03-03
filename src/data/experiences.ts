@@ -11,7 +11,7 @@ export interface ExperienceData {
 export const experiences: ExperienceData[] = [
     {
         id: 1,
-        role: "Software Developer | Team Leader",
+        role: "Desenvolvedor | Liderança Técnica",
         company: "InfoEduc Company",
         period: "Jun 2025 - Atual",
         description:

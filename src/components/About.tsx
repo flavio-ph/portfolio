@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Download } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="pt-6 flex flex-wrap gap-10">
+          <div className="pt-6 flex flex-wrap items-center gap-10">
             <div className="flex flex-col">
               <span className="text-3xl font-bold text-slate-900 dark:text-white">5+</span>
               <span className="text-xs font-bold uppercase tracking-wider text-pink-500">Projetos</span>
@@ -61,6 +61,15 @@ const About: React.FC = () => {
               <span className="text-3xl font-bold text-slate-900 dark:text-white">100%</span>
               <span className="text-xs font-bold uppercase tracking-wider text-green-500">Dedicação</span>
             </div>
+
+            <a
+              href="/curriculo.pdf"
+              download="Curriculo_Flavio.pdf"
+              className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-bold flex items-center justify-center transition-all hover:-translate-y-1 shadow-xl shadow-pink-500/20 w-fit group md:ml-4"
+            >
+              Baixar Currículo
+              <Download className="ml-2 w-5 h-5 transition-transform group-hover:translate-y-1" />
+            </a>
           </div>
         </div>
       </div>

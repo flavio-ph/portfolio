@@ -4,56 +4,62 @@ import { ExperienceData } from '../data/experiences';
 
 interface ExperienceCardProps {
     experience: ExperienceData;
+    isLast?: boolean;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, isLast }) => {
     return (
-        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-[#0f0f12] bg-indigo-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-pink-500">
-                <Briefcase size={16} aria-hidden="true" />
+        <div className="group h-full flex flex-col pt-4 md:pt-0 relative">
+            {/* Timeline Node - Absolute on the left line */}
+            <div className="absolute -left-6 md:-left-[100px] top-4 md:top-8 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-2xl border-4 border-slate-50 dark:border-[#0f0f12] bg-indigo-50 dark:bg-indigo-500/10 text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-colors z-20 shadow-lg -translate-x-1/2">
+                <Briefcase size={24} className="md:w-7 md:h-7" aria-hidden="true" />
             </div>
 
-            <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-white dark:bg-[#0f0f12] shadow-xl border border-slate-200/60 dark:border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-indigo-500/5 hover:-translate-y-1">
-                <div className="flex flex-col space-y-4">
-                    <div className="space-y-1">
-                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                            <span className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors">
-                                {experience.role}
-                            </span>
-                            <span className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
-                                <Calendar size={12} aria-hidden="true" />
-                                {experience.period}
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
-                            <Building2 size={14} className="text-pink-500" aria-hidden="true" />
+            <div className="flex flex-col flex-grow p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f0f12] shadow-xl border border-slate-200/60 dark:border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-indigo-500/10 hover:-translate-y-2 relative">
+
+
+                <div className="flex flex-col gap-4 mb-6">
+                    <span className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-500 transition-colors">
+                        {experience.role}
+                    </span>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center gap-2 text-sm md:text-base font-medium text-slate-500 dark:text-slate-400">
+                            <Building2 size={16} className="text-pink-500 md:w-[18px] md:h-[18px]" aria-hidden="true" />
                             {experience.company}
                         </div>
+                        <div className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 tracking-wider">
+                            <Calendar size={12} className="md:w-[14px] md:h-[14px]" aria-hidden="true" />
+                            {experience.period}
+                        </div>
                     </div>
+                </div>
 
-                    <div className="space-y-4">
-                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            {experience.description}
-                        </p>
+                <div className="space-y-4 flex-grow">
+                    <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
+                        {experience.description}
+                    </p>
 
-                        <ul className="space-y-2">
-                            {experience.achievements?.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                                    <ChevronRight size={16} className="text-pink-500 shrink-0 mt-0.5" aria-hidden="true" />
-                                    <span>{item}</span>
+                    {experience.achievements && experience.achievements.length > 0 && (
+                        <ul className="space-y-3 mt-4">
+                            {experience.achievements.map((item, i) => (
+                                <li key={i} className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+                                    <ChevronRight size={16} className="text-pink-500 shrink-0 mt-0.5 md:w-[18px] md:h-[18px]" aria-hidden="true" />
+                                    <span className="leading-relaxed">{item}</span>
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    )}
+                </div>
 
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-white/5">
-                        {experience.technologies?.map((tech, i) => (
-                            <span key={i} className="text-xs font-medium px-2 py-1 rounded-md bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+                {experience.technologies && experience.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-2 pt-6 border-t border-slate-100 dark:border-white/5 mt-8">
+                        {experience.technologies.map((tech, i) => (
+                            <span key={i} className="text-[10px] md:text-xs font-semibold px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300">
                                 {tech}
                             </span>
                         ))}
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );
