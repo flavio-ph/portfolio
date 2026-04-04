@@ -22,6 +22,7 @@ export interface Project {
 export interface Skill {
   name: string;
   icon: string;
+  description: string;
 }
 
 export enum Theme {
