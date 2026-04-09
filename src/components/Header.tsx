@@ -26,11 +26,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          // Controle do background do Header Desktop
           setScrolled(window.scrollY > 20);
 
-          // Lógica de Scroll Spy
-          const scrollPosition = window.scrollY + 200; // Offset para detectar a seção um pouco antes
+          const scrollPosition = window.scrollY + 200;
 
           navLinks.forEach((link) => {
             const sectionId = link.href.replace('#', '');

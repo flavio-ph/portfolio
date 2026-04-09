@@ -1,7 +1,6 @@
 import React from 'react';
 import { Download } from 'lucide-react';
 
-// Importando o currículo diretamente da pasta assets
 import cvFile from '../assets/CV - Flávio Almeida.pdf';
 
 const About: React.FC = () => {

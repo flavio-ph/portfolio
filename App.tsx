@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Header from './src/components/Header';
-import Hero from './src/components/Hero';
+import Home from './src/components/Home';
 import About from './src/components/About';
 import Experience from './src/components/Experience';
 import Skills from './src/components/Skills';
@@ -44,7 +44,7 @@ const App: React.FC = () => {
     <div className="min-h-screen theme-transition">
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main className="theme-transition">
-        <Hero />
+        <Home />
         <About />
         <Experience />
         <Skills />
