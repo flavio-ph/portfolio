@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["Desenvolvedor React", "Desenvolvedor Java", "Desenvolvedor Web"];
+  const phrases = ["Desenvolvedor Java", "Desenvolvedor React", "Desenvolvedor Web"];
 
   function abrirWhatsapp() {
     const url = `https://wa.me/${CONTACT_INFO.phone}?text=${encodeURIComponent(CONTACT_INFO.whatsappMessage)}`;
