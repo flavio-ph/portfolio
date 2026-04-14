@@ -3,7 +3,6 @@ import { experiences } from '../data/experiences';
 import ExperienceCard from './ExperienceCard';
 
 const Experience: React.FC = () => {
-    // Manter a ordem do mais antigo para o mais novo
     const sortedExperiences = [...experiences].reverse();
 
     return (
@@ -17,13 +16,12 @@ const Experience: React.FC = () => {
                 </div>
 
                 <div className="relative pl-8 md:pl-0">
-                    {/* Linha Vertical conectando (visível tanto mobile quanto desktop) */}
                     <div className="absolute left-8 md:left-[50px] top-4 bottom-0 w-1 bg-gradient-to-b from-indigo-200 via-indigo-400 to-pink-500 dark:from-indigo-900/50 dark:via-indigo-600 dark:to-pink-600 rounded-full z-0 -translate-x-1/2"></div>
 
                     <div className="flex flex-col gap-12 relative w-full pb-8">
                         {sortedExperiences.map((exp, index) => (
                             <div key={exp.id} className="relative z-10 w-full pl-6 md:pl-[100px]">
-                                <ExperienceCard experience={exp} isLast={index === sortedExperiences.length - 1} />
+                                <ExperienceCard experience={exp} />
                             </div>
                         ))}
                     </div>

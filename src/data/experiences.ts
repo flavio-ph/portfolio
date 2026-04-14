@@ -17,6 +17,7 @@ export const experiences: ExperienceData[] = [
         description:
             "Atuação no desenvolvimento de soluções web combinando desenvolvimento tradicional e plataformas No-Code, além de liderança técnica da equipe e organização de processos ágeis.",
         achievements: [
+            "Analise e desenvolvimento de sistemas",
             "Desenvolvimento de APIs e regras de negócio utilizando Java",
             "Construção de interfaces modernas com React",
             "Desenvolvimento de soluções utilizando Bubble.io (No-Code)",
@@ -45,6 +46,7 @@ export const experiences: ExperienceData[] = [
         description:
             "Desenvolvimento full stack de aplicações web, atuando na implementação de funcionalidades, integrações entre sistemas e evolução contínua da plataforma.",
         achievements: [
+            "Analise e desenvolvimento de sistemas",
             "Implementação de funcionalidades backend com Java",
             "Desenvolvimento de interfaces web com React",
             "Construção de soluções com Bubble.io",

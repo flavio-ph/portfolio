@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import HeroIllustration from './HeroIllustration';
 import { CONTACT_INFO } from '../../constants';
 
-const Hero: React.FC = () => {
+const Home: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
@@ -43,11 +43,11 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="pt-32 pb-20 px-6 min-h-screen flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 order-2 lg:order-1 relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="space-y-8 order-2 lg:order-1 relative z-10 lg:col-span-7">
           <div className="space-y-2">
             <h3 className="text-pink-500 font-bold tracking-widest text-sm uppercase">Bem-vindo ao meu portfólio</h3>
-            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
               Olá! Eu sou <span className="gradient-text">Flávio</span> <br />
               <span className="inline-block min-h-[1.2em]">
                 {displayText}
@@ -61,20 +61,26 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <button onClick={abrirWhatsapp} className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold flex items-center group transition-all hover:pr-10 shadow-xl shadow-pink-500/10">
-              Vamos Conectar
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+            <button
+              onClick={abrirWhatsapp}
+              className="px-6 py-3 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-bold transition-all duration-300 shadow-[0_0_20px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] flex items-center gap-2"
+            >
+              Fale Comigo
+              <ArrowRight size={20} />
             </button>
+            <a
+              href="#projects"
+              className="px-6 py-3 rounded-full bg-white dark:bg-[#0f0f12] border border-slate-200 dark:border-white/10 hover:border-pink-500/50 text-slate-800 dark:text-white font-bold transition-all duration-300 shadow-sm"
+            >
+              Ver Projetos
+            </a>
           </div>
         </div>
 
-        {/* Container da Ilustração: Oculto em mobile, visível em telas LG+ */}
-        <div className="hidden lg:flex order-1 lg:order-2 relative justify-center items-center">
-          {/* Background Glow */}
+        <div className="hidden lg:flex order-1 lg:order-2 relative justify-center items-center lg:col-span-5">
           <div className="absolute w-[120%] h-[120%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
 
           <div className="relative group w-full max-w-xl">
-            {/* Main Illustration Component com animação global de flutuar */}
             <HeroIllustration
               className="w-full h-auto drop-shadow-[0_20px_50px_rgba(236,72,153,0.3)] animate-float"
             />
@@ -85,4 +91,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default Home;

@@ -7,7 +7,7 @@ interface ExperienceCardProps {
     isLast?: boolean;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, isLast }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
     return (
         <div className="group h-full flex flex-col pt-4 md:pt-0 relative">
             {/* Timeline Node - Absolute on the left line */}
